@@ -57,6 +57,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Tizen\**" />
+	  <Compile Remove="Platforms\Tizen\**" />
+	  <EmbeddedResource Remove="Platforms\Tizen\**" />
+	  <MauiCss Remove="Platforms\Tizen\**" />
+	  <MauiXaml Remove="Platforms\Tizen\**" />
+	  <None Remove="Platforms\Tizen\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
