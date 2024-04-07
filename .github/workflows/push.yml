@@ -27,4 +27,4 @@ jobs:
     - name: restore dependencies
       run : dotnet restore
     - name: Build
-      run: dotnet build Windows-Autopilot-Companion/Windows-Autopilot-Companion.csproj -c Release -f net8.0-windows10.0.19041.0 --no-restore
+      run: dotnet build Windows-Autopilot-Companion/Windows-Autopilot-Companion.csproj -c Release -f net8.0-windows10.0.19041.0
