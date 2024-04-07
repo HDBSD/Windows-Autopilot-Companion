@@ -1,0 +1,39 @@
+name: .Net MAUI Build
+
+on:
+  pull_request:
+    branches: 
+      - main
+      - dev
+    types: 
+      - closed
+    paths: 
+      - '**.sln'
+      - '**.cs'
+      - '**.csproj'
+      - '**.xml'
+      - '**.xaml'
+
+
+  jobs:
+    build_if_merged:
+      if: github.event.pull_request.merged == true
+      runs-on: windows-latest
+
+      steps:
+      
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
+      
+      - name: Install .NET MAUI
+        run: dotnet workload install maui
+
+      - name: restore dependencies
+        run : dotnet restore
+      
+      - name: Build
+        run: dotnet build Windows-Autopilot-Companion/Windows-Autopilot-Companion.csproj -c Release -f net8.0-windows10.0.19041.0 --no-restore
