@@ -1,7 +1,7 @@
 name: .Net MAUI Build
 
 on:
-  pull_request:
+  push:
     branches: 
       - main
       - dev
@@ -14,10 +14,8 @@ on:
       - '**.xml'
       - '**.xaml'
 
-
 jobs:
   build_if_merged:
-    if: github.event.pull_request.merged == true
     runs-on: windows-latest
 
     steps:
