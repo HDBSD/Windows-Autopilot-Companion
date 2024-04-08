@@ -1,6 +1,8 @@
+using Microsoft.Identity.Client;
+
 namespace Windows_Autopilot_Companion.Services
 {
-    public enum AuthenticationResult
+    public enum AuthenticationResultCode
     {
         None,
         Successful,
@@ -12,9 +14,11 @@ namespace Windows_Autopilot_Companion.Services
     public partial class MSALAuthentication
     {
 
-        private AuthenticationResult AuthStatus = AuthenticationResult.None;
+        private string error = "";
+        private AuthenticationResultCode AuthStatus = AuthenticationResultCode.None;
+        private AuthenticationResult? AuthResult = null; 
 
-        public AuthenticationResult AuthenticationStatus
+        public AuthenticationResultCode AuthenticationStatus
         {
             get {return AuthStatus; }
         }
@@ -32,6 +36,6 @@ namespace Windows_Autopilot_Companion.Services
             }
         }
 
-        public partial void Authenticate(string ClientId, string[] Scopes, string RedirectURI);
+        public partial Task<AuthenticationResult> Authenticate(string ClientId, string[] Scopes, string RedirectURI);
     }
 }
