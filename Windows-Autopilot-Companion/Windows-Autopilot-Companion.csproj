@@ -24,7 +24,7 @@
 		<ApplicationTitle>Windows-Autopilot-Companion</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.windows_autopilot_companion</ApplicationId>
+		<ApplicationId>uk.co.hdbsd.wacompanion</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
