@@ -3,32 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Windows_Autopilot_Companion.Pages.AccountInfo"
              xmlns:vms="clr-namespace:Windows_Autopilot_Companion.Viewmodels">
+
     <ContentPage.BindingContext>
         <vms:AccountInfoViewmodel/>
     </ContentPage.BindingContext>
-
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <ActivityIndicator IsRunning="true"
+                   Color="SteelBlue" />
+
             <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+                    Source="{Binding UserProfile.ProfileImage}"
+                    HeightRequest="185"
+                    Aspect="AspectFit"/>
 
             <Label
-                Text="{Binding AuthResult.Account.Username, StringFormat='Hello, {0}!'}"
+                Text="{Binding UserProfile.DisplayName, StringFormat='{0}'}"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
                 x:Name="UsernameLabel"
-                Text="Placeholder"
+                Text="{Binding UserProfile.UserPrincipalName}"
                 Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                SemanticProperties.HeadingLevel="Level2"/>
+            <Button
+                x:Name="LogoutBtn"
+                Text="Logout"
+                />
         </VerticalStackLayout>
     </ScrollView>
 
