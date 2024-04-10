@@ -8,7 +8,6 @@ namespace Windows_Autopilot_Companion.Models
         public string? Mail { get; set; }
         public string? UserPrincipalName { get; set; }
         public string? TelephoneNumber { get; set; }
-        public string? Ztdid { get; set; }
-        public string? Error { get; set; }
+        public ImageSource ProfileImage { get; set; }
     }
 }
