@@ -16,7 +16,7 @@ namespace Windows_Autopilot_Companion.Services
 
         private string error = "";
         private AuthenticationResultCode AuthStatus = AuthenticationResultCode.None;
-        private AuthenticationResult? AuthResult = null; 
+        public AuthenticationResult? AuthResult = null; 
 
         public AuthenticationResultCode AuthenticationStatus
         {
