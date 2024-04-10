@@ -5,11 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Windows_Autopilot_Companion"
     Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    Shell.NavBarIsVisible="False"
     Title="Windows_Autopilot_Companion">
 
-    <ShellContent
-        Title="Home"
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
             ContentTemplate="{DataTemplate local:Pages.Login}"
             Route="Pages.Login" />
+        <ShellContent
+            Title="Account Info"
+            ContentTemplate="{DataTemplate local:Pages.AccountInfo}"
+            Route="Pages.AccountInfo" />
+    </FlyoutItem>
 
 </Shell>
