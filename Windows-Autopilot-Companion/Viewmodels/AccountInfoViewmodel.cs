@@ -18,11 +18,7 @@ namespace Windows_Autopilot_Companion.Viewmodels
 
 
         private User _UserProfile;
-
-        public bool Loaded = false;
-
-
-		public User UserProfile 
+		public User UserProfile
 		{
 			get => _UserProfile;
 			set
@@ -34,6 +30,21 @@ namespace Windows_Autopilot_Companion.Viewmodels
 				}
 			}
 		}
+
+		private bool _loaded = false;
+		public bool IsLoaded
+		{
+			get => _loaded;
+			set
+			{
+				if (_loaded != value)
+				{
+					_loaded = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
         public Command LoadUserData { get; set; }
 
         public AccountInfoViewmodel()
@@ -47,6 +58,7 @@ namespace Windows_Autopilot_Companion.Viewmodels
 		{
 			MSGraph_User MSGraphUserQuery = new MSGraph_User();
             UserProfile = await MSGraphUserQuery.GetSelf();
+			IsLoaded = true;
 
 		}
 

@@ -13,27 +13,50 @@
             Padding="30,0"
             Spacing="25">
             <ActivityIndicator IsRunning="true"
-                   Color="SteelBlue" />
+                               HorizontalOptions="Center"
+                               Color="SteelBlue"
+                               IsVisible="{Binding IsLoaded}"/>
 
-            <Image
-                    Source="{Binding UserProfile.ProfileImage}"
-                    HeightRequest="185"
-                    Aspect="AspectFit"/>
+            <Frame x:Name="LoadedContentFrame"
+                   IsVisible="{Binding IsLoaded}">
+                <VerticalStackLayout
+                    Padding="30,0"
+                    Spacing="25">
+                    
+                    <Frame HeightRequest="185"
+                       WidthRequest="185"
+                       CornerRadius="100"
+                       HorizontalOptions="Center"
+                       IsClippedToBounds="True"
+                       Padding="0">
 
-            <Label
-                Text="{Binding UserProfile.DisplayName, StringFormat='{0}'}"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                        <Image
+                            Source="{Binding UserProfile.ProfileImage}"
+                            HeightRequest="185"
+                            WidthRequest="185"
+                            Aspect="AspectFit"/>
 
-            <Label
-                x:Name="UsernameLabel"
-                Text="{Binding UserProfile.UserPrincipalName}"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"/>
-            <Button
-                x:Name="LogoutBtn"
-                Text="Logout"
-                />
+                    </Frame>
+
+                    <Label
+                        Text="{Binding UserProfile.DisplayName, StringFormat='{0}'}"
+                        Style="{StaticResource Headline}"
+                        SemanticProperties.HeadingLevel="Level1" />
+
+                    <Label
+                        x:Name="UsernameLabel"
+                        Text="{Binding UserProfile.UserPrincipalName}"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level2"/>
+                    <Button
+                        x:Name="LogoutBtn"
+                        Text="Logout"
+                    />
+                </VerticalStackLayout>
+
+            </Frame>
+            
+
         </VerticalStackLayout>
     </ScrollView>
 

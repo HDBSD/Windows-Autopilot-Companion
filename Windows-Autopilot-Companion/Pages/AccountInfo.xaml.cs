@@ -8,18 +8,20 @@ namespace Windows_Autopilot_Companion.Pages
 
 		//public static AuthenticationResult? AuthResult { get; private set; }
 
-		AccountInfoViewmodel viewmodel;
+		//AccountInfoViewmodel viewmodel;
 		public AccountInfo()
 		{
 			InitializeComponent();
-			BindingContext = viewmodel = new AccountInfoViewmodel();
+			//BindingContext = viewmodel = new AccountInfoViewmodel();
 		}
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-			if (viewmodel.Loaded == false)
+			var viewmodel = (AccountInfoViewmodel)BindingContext;
+
+			if (viewmodel.IsLoaded == false)
 				viewmodel.LoadUserData.Execute(null);
         }
     }
