@@ -1,0 +1,30 @@
+name: Ios .Net MAUI Build
+
+on:
+  push:
+    branches: 
+      - main
+      - dev
+    paths: 
+      - '**.sln'
+      - '**.cs'
+      - '**.csproj'
+      - '**.xml'
+      - '**.xaml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 8.0.x
+    - name: Install .NET MAUI
+      run: dotnet workload install maui
+    - name: restore dependencies
+      run : dotnet restore
+    - name: Build
+      run: dotnet build Windows-Autopilot-Companion/Windows-Autopilot-Companion.csproj -c Release -f net8.0-ios
